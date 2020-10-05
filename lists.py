@@ -3,7 +3,6 @@
 Complete the following functions.
 """
 
-
 def print_indices(items):
     """Print each item in the list, followed by its index.
 
@@ -23,9 +22,8 @@ def print_indices(items):
         berry 1
         cherry 2
     """
-
-    print("Nothing at all")
-
+    for (i, item) in enumerate(items, start=1):
+        print(i, item)
 
 def words_in_common(words1, words2):
     """Return words that are shared between `words1` and `words2`.
@@ -59,10 +57,11 @@ def words_in_common(words1, words2):
         ... )
         []
     """
+    word3_set = set(words1 + words2)
+    word3_set = sorted(word3_set)
+    return [word3_set]
 
-    return ['the wrong thing']
-
-
+ 
 def every_other_item(items):
     """Return every other item in `items`, starting at first item.
 
@@ -72,7 +71,11 @@ def every_other_item(items):
        ['a', True, 0]
     """
 
-    return ['the wrong thing']
+    alternate_item=[]
+    for i in range(0, len(items)):
+        if i%2==0:
+            alternate_item.append(items[i])
+    return alternate_item
 
 
 def smallest_n_items(items, n):
@@ -95,5 +98,8 @@ def smallest_n_items(items, n):
         >>> smallest_n_items([1, 1, 1, 1, 1, 1], 2)
         [1, 1]
     """
-
-    return []
+    if n == 0 :
+        return []
+    sorted_items = sorted(items)
+    smallest_n_items = sorted(sorted_items[0:n], reverse=True)
+    return smallest_n_items
